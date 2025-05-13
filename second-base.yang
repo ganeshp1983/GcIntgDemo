@@ -1,0 +1,42 @@
+module second-base {
+    yang-version 1.1;
+    namespace "http://truminds.com/ns/second-base";
+    prefix sb;
+
+    organization "Truminds Software Systems";
+    contact "ganesh.prabhakar@truminds.com";
+
+    description
+        "This module defines a non-configurable person container with name and mobile number.";
+
+    revision "2025-05-13" {
+        description
+            "Initial revision.";
+    }
+
+    typedef mobile-number {
+        type string {
+            pattern "^[0-9]{10}$";
+        }
+        description
+            "A typedef for a 10-digit mobile number.";
+    }
+
+    container person {
+        config false;
+        description
+            "A non-configurable container for person details.";
+
+        leaf name {
+            type string;
+            description
+                "The name of the person.";
+        }
+
+        leaf mobile-number {
+            type mobile-number;
+            description
+                "The mobile number of the person.";
+        }
+    }
+}

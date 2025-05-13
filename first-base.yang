@@ -1,0 +1,44 @@
+module first-base {
+    namespace "http://truminds.com/ns/first-base";
+    prefix fb;
+
+    organization "Truminds Software Systems";
+    contact "ganesh.prabhakar@truminds.com";
+
+    description
+        "This is a basic YANG module example.";
+
+    revision "2023-10-01" {
+        description
+            "Initial revision.";
+    }
+
+    container base-container {
+        description
+            "A container for base elements.";
+
+        leaf base-leaf {
+            type string;
+            description
+                "A simple string leaf.";
+        }
+
+        list base-list {
+            key "id";
+            description
+                "A list of base elements.";
+
+            leaf id {
+                type uint32;
+                description
+                    "Unique identifier for each list entry.";
+            }
+
+            leaf name {
+                type string;
+                description
+                    "Name of the list entry.";
+            }
+        }
+    }
+}
